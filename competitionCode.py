@@ -44,9 +44,6 @@ X_test.Sex *=10
 X_train = sc.fit_transform(X_train)
 X_test_trans = sc.transform(X_test)
 
-##Try weighting sex more?
-
-
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
@@ -57,7 +54,7 @@ classifier.add(Dense(64, activation = 'relu'))
 classifier.add(Dropout(0.5))
 classifier.add(Dense(1, activation = 'sigmoid'))
 classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-classifier.fit(X_train, Y_train, epochs = 300, batch_size=64)
+classifier.fit(X_train, Y_train, epochs = 500, batch_size=128)
 '''
 param_grid = {
     'optimizer': ['adam', 'sgd', 'rmsprop'],
